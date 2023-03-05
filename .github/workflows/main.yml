@@ -22,7 +22,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  check-links:
+  run-tests:
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
     steps:
       - name: Checkout
@@ -37,5 +37,5 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Show files changed
+      - name: Run tests Chrome Headless
         run: npx cypress run --browser chrome
