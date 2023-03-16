@@ -3,8 +3,6 @@ name: 'Test Automation'
 # **What it does**: Renders the content of every page and check all internal links.
 # **Why we have it**: To make sure all links connect correctly.
 # **Who does it impact**: Docs content.
-env: 
-  CYPRESS_SAUCEPASSWORD: ${{ secrets.CYPRESS_ENV_CI }}
 on:
   workflow_dispatch:
   push:
@@ -39,4 +37,6 @@ jobs:
         run: npm ci
 
       - name: Run tests Chrome Headless
+        env:
+          CYPRESS_saucePassword: ${{secrets.CYPRESS_ENV_CI}}
         run: npx cypress run --browser chrome
