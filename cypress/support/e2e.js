@@ -15,6 +15,15 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+beforeEach(() => {
+  if(Cypress.spec.name == ('login.cy.js')){
+    cy.visit(Cypress.env('sauceUrl'))
+  }
+  if(Cypress.spec.name == ('inventory.cy.js')){
+    cy.login(Cypress.env('sauceUser'), Cypress.env('saucePassword'))
+  }
+  
+})
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
     // failing the test
