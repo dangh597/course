@@ -1,9 +1,10 @@
-name: 'Link Checker: All English'
+name: 'Test Automation'
 
 # **What it does**: Renders the content of every page and check all internal links.
 # **Why we have it**: To make sure all links connect correctly.
 # **Who does it impact**: Docs content.
-
+env: 
+  CYPRESS_SAUCEPASSWORD: ${{ secrets.CYPRESS_ENV_CI }}
 on:
   workflow_dispatch:
   push:
