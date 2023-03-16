@@ -2,7 +2,7 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   "video": false,
   env: {
-    saucePassword: "",
+    saucePassword: "secret_sauce",
     sauceUser: "standard_user",
     sauceUrl: "https://www.saucedemo.com",
     sauceBadUser: "standard-user",
